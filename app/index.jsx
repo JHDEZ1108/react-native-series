@@ -1,16 +1,17 @@
-import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native'
-import { Link } from 'expo-router'
-
-import icedCoffeeImg from "@/assets/images/iced-coffee.png"
+import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native';
+import { Link } from 'expo-router';
+import ThemeToggle from '@/components/ThemeToggle';
+import icedCoffeeImg from '@/assets/images/iced-coffee.png';
 
 const app = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={icedCoffeeImg}
-        resizeMode="cover"
-        style={styles.image}
-      >
+      {/* Theme Toggle Button in the top-right corner */}
+      <View style={styles.toggleContainer}>
+        <ThemeToggle />
+      </View>
+      
+      <ImageBackground source={icedCoffeeImg} resizeMode="cover" style={styles.image}>
         <Text style={styles.title}>Coffee Shop</Text>
 
         <Link href="/menu" style={{ marginHorizontal: 'auto' }} asChild>
@@ -24,18 +25,23 @@ const app = () => {
             <Text style={styles.buttonText}>Contact Us</Text>
           </Pressable>
         </Link>
-
       </ImageBackground>
     </View>
-  )
-}
+  );
+};
 
-export default app
+export default app;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+  },
+  toggleContainer: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    zIndex: 10,
   },
   image: {
     width: '100%',
@@ -76,5 +82,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 4,
-  }
-})
+  },
+});

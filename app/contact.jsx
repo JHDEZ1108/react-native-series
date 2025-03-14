@@ -1,30 +1,18 @@
 import { Fontisto } from '@expo/vector-icons';
-import {
-  StyleSheet, SafeAreaView, View, Text, Appearance
-} from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import { Link } from 'expo-router';
-
+import { useTheme } from '@/context/ThemeProvider';
 import { Colors } from '@/constants/Colors';
 
 export default function ContactScreen() {
-  const colorScheme = Appearance.getColorScheme();
-
-  const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
-
-  const imgColor = colorScheme === 'dark' ? 'papayawhip' : '#333';
-
-  const styles = createStyles(theme, colorScheme);
+  const { theme } = useTheme();  
+  const imgColor = theme === Colors.dark ? 'papayawhip' : '#333'; // ✅ Fixed comparison
+  const styles = createStyles(theme);
 
   return (
-
     <SafeAreaView style={styles.container}>
-
       <View style={styles.imgContainer}>
-        <Fontisto
-          name="coffeescript"
-          size={250}
-          color={imgColor}
-        />
+        <Fontisto name="coffeescript" size={250} color={imgColor} />
       </View>
 
       <View style={styles.textContainer}>
@@ -52,22 +40,20 @@ export default function ContactScreen() {
             <Text>Open 6am to 4pm daily.</Text>{'\n'}
           </Text>
         </View>
-
       </View>
-
     </SafeAreaView>
   );
 }
 
-function createStyles(theme, colorScheme) {
+function createStyles(theme) {
   return StyleSheet.create({
     container: {
       backgroundColor: theme.background,
       paddingTop: 0,
-      flexGrow: 1
+      flexGrow: 1,
     },
     imgContainer: {
-      backgroundColor: colorScheme === 'dark' ? '#353636' : '#D0D0D0',
+      backgroundColor: theme === Colors.dark ? '#353636' : '#D0D0D0',
       height: 250,
     },
     textContainer: {
@@ -91,6 +77,7 @@ function createStyles(theme, colorScheme) {
     },
     link: {
       textDecorationLine: 'underline',
-    }
+      color: theme.text,
+    },
   });
 }

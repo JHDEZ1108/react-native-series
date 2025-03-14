@@ -1,4 +1,3 @@
-
 import { Fontisto } from '@expo/vector-icons';
 import {
   StyleSheet, SafeAreaView, View, Text, Appearance

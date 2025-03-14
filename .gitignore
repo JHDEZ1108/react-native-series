@@ -1,44 +1,38 @@
-# Dependencias de Node.js
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
 node_modules/
-package-lock.json
-yarn.lock
-.pnpm-debug.log
-.npm-debug.log
 
-# Archivos de Expo
+# Expo
 .expo/
-.expo-shared/
-
-# Archivos de caché
-*.log
-*.swp
-*.swo
-*.swn
-*.bak
-
-# Archivos de configuración de IDEs y editores de código
-.vscode/
-.idea/
-*.iml
-*.sublime-workspace
-
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-
-# Archivos de compilación y output
-build/
 dist/
-coverage/
-android/.gradle/
-android/app/build/
-android/build/
-ios/Pods/
-ios/build/
+web-build/
+expo-env.d.ts
 
-# Archivos de configuraciones específicas de macOS y Linux
-.env
-.env.local
-.env.development
-.env.production
-.env.test
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+app-example

@@ -27,7 +27,7 @@ npx expo start
 ```
 
 ### 👨‍💻 DEMO: 
-👉 [Coffe Shop App Demo]([[https://expo.dev/@jhdez1108/MyApp]]](https://coffeeshopstaticapp--v093xou5r8.expo.app/ )
+👉 https://coffeeshopstaticapp--v093xou5r8.expo.app/ 
 
 Built with ❤️ using **React Native + Expo**
 ---

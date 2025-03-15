@@ -26,7 +26,9 @@ yarn install
 npx expo start
 ```
 
-### 👨‍💻 Author  
+### 👨‍💻 DEMO: 
+👉 [Coffe Shop App Demo](https://expo.dev/@jhdez1108/MyApp)
+
 Built with ❤️ using **React Native + Expo**
 ---
 

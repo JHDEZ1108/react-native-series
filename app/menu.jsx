@@ -8,7 +8,12 @@ export default function MenuScreen() {
     const styles = createStyles(theme);
     const Container = Platform.OS === "web" ? ScrollView : SafeAreaView;
     const separatorComp = <View style={styles.separator} />;
-    const footerComp = <Text style={{ color: theme.text }}>End of Menu</Text>;
+    const footerComp = (
+        <View style={styles.footerContainer}>
+            <View style={styles.separator} />
+            <Text style={styles.footerText}>☕ That's all for now! Enjoy your coffee! ☕</Text>
+        </View>
+    );
 
     return (
         <Container>
@@ -20,17 +25,16 @@ export default function MenuScreen() {
                 ItemSeparatorComponent={separatorComp}
                 ListFooterComponent={footerComp}
                 ListFooterComponentStyle={styles.footerComp}
-                ListEmptyComponent={<Text>No items</Text>}
+                ListEmptyComponent={<Text style={styles.emptyText}>No items</Text>}
                 renderItem={({ item }) => (
-                    <View style={styles.row}>
-                        <View style={styles.menuTextRow}>
-                            <Text style={[styles.menuItemTitle, styles.menuItemText]}>{item.title}</Text>
+                    <View style={styles.card}>
+                        <Image source={MENU_IMAGES[item.id - 1]} style={styles.menuImage} />
+
+                        <View style={styles.textContainer}>
+                            <Text style={styles.menuItemTitle}>{item.title}</Text>
                             <Text style={styles.menuItemText}>{item.description}</Text>
+                            <Text style={styles.menuItemPrice}>${item.price.toFixed(2)}</Text>
                         </View>
-                        <Image
-                            source={MENU_IMAGES[item.id - 1]}
-                            style={styles.menuImage}
-                        />
                     </View>
                 )}
             />
@@ -51,42 +55,64 @@ function createStyles(theme) {
             backgroundColor: theme.text,
             width: "50%",
             maxWidth: 300,
-            marginHorizontal: "auto",
+            alignSelf: "center",
             marginBottom: 10,
         },
         footerComp: {
-            marginHorizontal: "auto",
+            marginTop: 10,
         },
-        row: {
+        emptyText: {
+            textAlign: "center",
+            color: theme.text,
+            fontSize: 16,
+        },
+        card: {
             flexDirection: "row",
             width: "100%",
             maxWidth: 600,
-            height: 100,
+            backgroundColor: theme === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+            padding: 10,
+            borderRadius: 15,
+            alignItems: "center",
             marginBottom: 10,
-            borderStyle: "solid",
-            borderColor: theme.text,
-            borderWidth: 1,
-            borderRadius: 20,
-            overflow: "hidden",
-            marginHorizontal: "auto",
         },
-        menuTextRow: {
-            width: "65%",
-            paddingTop: 10,
-            paddingLeft: 10,
-            paddingRight: 5,
-            flexGrow: 1,
+        menuImage: {
+            width: 80,
+            height: 80,
+            borderRadius: 10,
+        },
+        textContainer: {
+            flex: 1,
+            paddingLeft: 12,
         },
         menuItemTitle: {
             fontSize: 18,
-            textDecorationLine: "underline",
-        },
-        menuItemText: {
+            fontWeight: "bold",
             color: theme.text,
         },
-        menuImage: {
-            width: 100,
-            height: 100,
+        menuItemText: {
+            fontSize: 14,
+            color: theme.text,
+            marginVertical: 4,
+        },
+        menuItemPrice: {
+            fontSize: 16,
+            fontWeight: "bold",
+            color: theme.text,
+            textAlign: "right",
+        },
+        footerContainer: {
+            marginTop: 20,
+            alignItems: "center",
+            justifyContent: "center",
+            paddingVertical: 10,
+        },
+        footerText: {
+            fontSize: 16,
+            fontWeight: "bold",
+            color: theme.text,
+            textAlign: "center",
+            opacity: 0.8,
         },
     });
 }

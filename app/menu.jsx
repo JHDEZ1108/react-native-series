@@ -49,6 +49,7 @@ function createStyles(theme) {
             paddingBottom: 20,
             paddingHorizontal: 12,
             backgroundColor: theme.background,
+            alignItems: "center"
         },
         separator: {
             height: 1,

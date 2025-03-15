@@ -27,7 +27,7 @@ npx expo start
 ```
 
 ### 👨‍💻 Author  
-Built with ❤️ using **React Native + Expo** by Josué Hernández.  
+Built with ❤️ using **React Native + Expo**
 ---
 
 Happy coding! 🎉

@@ -11,7 +11,7 @@ function RootLayoutContent() {
   const { theme } = useTheme();
 
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('@/assets/fonts/DancingScript-Regular.ttf'),
   });
 
   useEffect(() => {

@@ -20,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.MyApp"
     },
     "web": {
       "bundler": "metro",
@@ -32,12 +33,20 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/splash.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      [
+        "expo-font",
+        {
+          "DancingScript-Regular": "./assets/fonts/DancingScript-Regular.ttf",
+          "DancingScript-Bold": "./assets/fonts/DancingScript-Bold.ttf"
+        }
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true

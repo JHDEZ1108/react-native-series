@@ -23,10 +23,10 @@ yarn install
 
 ### **2️⃣ Start the App**
 ```sh
-expo start
+npx expo start
 ```
 
-## 👨‍💻 Author  
+### 👨‍💻 Author  
 Built with ❤️ using **React Native + Expo** by Josué Hernández.  
 ---
 
